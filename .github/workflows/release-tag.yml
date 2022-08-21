@@ -16,8 +16,7 @@ jobs:
       - run: git config --global user.name "Yunlong"
       - run: echo ${{ github.ref }} >> version
       - run: git add . && git commit -m "edit version"
-      - run: git remote add origin git@github.com:WuYunlong/GithubLearn.git
-      - run: git push -u origin master
+      - run: git push
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
       - name: Create Release for Tag
