@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
       - run: echo ${{ github.ref }} >> version
       - run: git add . && git commit -m "edit version"
       - run: git push -u origin master
