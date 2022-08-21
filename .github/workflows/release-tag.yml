@@ -18,8 +18,8 @@ jobs:
       - run: git config --global user.name "Yunlong"
       - run: echo ${{ github.ref }} >> version
       - run: git add . && git commit -m "edit version"
-      - run: git push -u origin master
       - run: echo ${{ GITHUB_TOKEN }}
+      - run: git push -u origin master
       - name: Create Release for Tag
         id: release_tag
         uses: actions/create-release@v1
