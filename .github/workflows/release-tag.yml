@@ -22,7 +22,6 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
-        needs: [Checkout code]
       - name: Create Release for Tag
         id: release_tag
         uses: actions/create-release@v1
