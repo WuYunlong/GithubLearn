@@ -16,7 +16,7 @@ jobs:
         run: |
           git config --global user.email "17771258@qq.com"
           git config --global user.name "Yunlong"
-          echo ${{ github.ref }} >> version
+          echo ${{ github.ref_name }} >> version
           git add .
           git commit -m "editor version" -a
       - name: Push changes
