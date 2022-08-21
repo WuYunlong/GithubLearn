@@ -16,11 +16,10 @@ jobs:
         run: |
           git config --global user.email "17771258@qq.com"
           git config --global user.name "Yunlong"
-          git checkout master
           echo ${{ github.ref }} >> version
           git add .
           git commit -m "editor version" -a
-          git push
+          git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
       - name: Create Release for Tag
