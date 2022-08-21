@@ -14,16 +14,16 @@ jobs:
         uses: actions/checkout@master
       - name: Commit Push
         run: |
-          mkdir test && cd test
           git config --global user.email "17771258@qq.com"
           git config --global user.name "Yunlong"
-          git clone git@github.com:WuYunlong/GithubLearn.git .
           echo ${{ github.ref }} >> version
           git add .
           git commit -m "editor version" -a
-          git push origin master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GIT_HUB_TOKEN }}
+          branch: master
       - name: Create Release for Tag
         id: release_tag
         uses: actions/create-release@v1
