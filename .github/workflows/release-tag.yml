@@ -12,13 +12,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
-      - run: git config --global user.email "17771258@qq.com"
-      - run: git config --global user.name "Yunlong"
-      - run: echo ${{ github.ref }} >> version
-      - run: git add . && git commit -m "edit version"
-      - run: git push
+      - name: Commit Push
+        run: |
+          git config --global user.email "17771258@qq.com"
+          git config --global user.name "Yunlong"
+          echo ${{ github.ref }} >> version
+          git add .
+          git commit -m "editor version" -a
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+        needs: [Checkout code]
       - name: Create Release for Tag
         id: release_tag
         uses: actions/create-release@v1
