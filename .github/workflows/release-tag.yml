@@ -14,8 +14,10 @@ jobs:
         uses: actions/checkout@master
       - name: Commit Push
         run: |
+          mkdir test && cd test
           git config --global user.email "17771258@qq.com"
           git config --global user.name "Yunlong"
+          git clone git@github.com:WuYunlong/GithubLearn.git .
           echo ${{ github.ref }} >> version
           git add .
           git commit -m "editor version" -a
