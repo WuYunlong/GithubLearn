@@ -12,10 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@master
-      - name: Rename Verion
-        - run: echo ${{ github.ref }} >> version
-        - run: git add . && git commit -m "edit version"
-        - run: git push -u origin master
+      - run: echo ${{ github.ref }} >> version
+      - run: git add . && git commit -m "edit version"
+      - run: git push -u origin master
       - name: Create Release for Tag
         id: release_tag
         uses: actions/create-release@v1
